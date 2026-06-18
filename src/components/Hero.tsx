@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Play, CalendarDays, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -47,6 +47,7 @@ function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
       ref={videoRef}
       muted
       playsInline
+      preload="none"
       onEnded={onEnded}
       onError={(e) => {
         const target = e.target as HTMLElement;
@@ -56,7 +57,7 @@ function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
         console.error(`Error loading video: ${url}. Skipping...`);
         onEnded();
       }}
-      className="w-full h-full object-cover animate-fade-in"
+      className="w-full h-full object-cover"
     >
       <source src={`${url}.webm`} type="video/webm" />
       <source 
@@ -111,37 +112,35 @@ export default function Hero() {
       <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center p-6 md:p-12 lg:p-16 group/card">
         
         {/* Background Slideshow */}
-        {slides.map((slide, index) => {
-          const isActive = index === currentSlide;
-          return (
-            <div
-              key={slide.url}
-              className={cn(
-                "absolute inset-0 z-0 transition-all duration-1000 ease-in-out",
-                isActive ? "opacity-100 scale-100" : "opacity-0 scale-105"
-              )}
-            >
-              {slide.type === "video" ? (
-                <VideoSlide
-                  url={slide.url}
-                  isActive={isActive}
-                  onEnded={handleVideoEnded}
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={slides[currentSlide].url}
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 z-0"
+          >
+            {slides[currentSlide].type === "video" ? (
+              <VideoSlide
+                url={slides[currentSlide].url}
+                isActive={true}
+                onEnded={handleVideoEnded}
+              />
+            ) : (
+              <div className="absolute inset-0">
+                <Image
+                  src={slides[currentSlide].url}
+                  alt="Hero slide"
+                  fill
+                  priority={currentSlide === 0}
+                  className="object-cover object-center"
+                  sizes="(max-width: 1440px) 100vw, 1440px"
                 />
-              ) : (
-                <div className="absolute inset-0">
-                  <Image
-                    src={slide.url}
-                    alt="Hero slide"
-                    fill
-                    priority={index === 0}
-                    className="object-cover object-center"
-                    sizes="(max-width: 1440px) 100vw, 1440px"
-                  />
-                </div>
-              )}
-            </div>
-          );
-        })}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Gradient Overlay for Text Readability & Smooth Bottom Blend */}
         <div className="absolute inset-0 z-1 bg-linear-to-t from-[#060913] via-[#060913]/10 to-transparent" />
