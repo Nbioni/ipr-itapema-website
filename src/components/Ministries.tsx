@@ -26,7 +26,7 @@ const ministryList = [
     subtitle: "Ministério de Homens",
     description: "Um espaço dedicado ao fortalecimento do homem cristão em suas responsabilidades como líder, pai, esposo e profissional. Nossos encontros visam o discipulado e a comunhão mútua.",
     link: "https://www.instagram.com/ipritapema/",
-    linkText: "Mais Informações",
+    linkText: "Acompanhar Rede Calebe no Instagram",
     logo: "/rede_calebe_logo.png",
   },
   {
@@ -34,7 +34,7 @@ const ministryList = [
     subtitle: "Ministério Feminino",
     description: "Encontros especiais projetados para fortalecer a identidade da mulher cristã, promover a cura interior, a comunhão e edificação através de painéis, chás e estudos focados.",
     link: "https://www.instagram.com/ipritapema/",
-    linkText: "Mais Informações",
+    linkText: "Acompanhar Rede Ester no Instagram",
     logo: "/rede_ester_logo.png",
   },
 ];

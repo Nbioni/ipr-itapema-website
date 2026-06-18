@@ -131,6 +131,7 @@ export default function Header() {
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 text-foreground/80 hover:text-foreground hover:bg-white/5 rounded-xl"
+              aria-label="Fechar menu"
             >
               <X className="w-6 h-6" />
             </button>

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Play, CalendarDays, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const slides = [
   { type: "image", url: "/fotos_hero/foto_1.jpg" },
@@ -116,12 +117,16 @@ export default function Hero() {
                   onEnded={handleVideoEnded}
                 />
               ) : (
-                <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `url('${slide.url}')`,
-                  }}
-                />
+                <div className="absolute inset-0">
+                  <Image
+                    src={slide.url}
+                    alt="Hero slide"
+                    fill
+                    priority={index === 0}
+                    className="object-cover object-center"
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                  />
+                </div>
               )}
             </div>
           );
@@ -150,14 +155,12 @@ export default function Hero() {
         {/* Pagination dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {slides.map((_, index) => (
-            <button
+            <div
               key={index}
-              onClick={() => setCurrentSlide(index)}
               className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300 cursor-pointer",
-                index === currentSlide ? "bg-white w-5" : "bg-white/40 hover:bg-white/60"
+                "w-2 h-2 rounded-full transition-all duration-300",
+                index === currentSlide ? "bg-white w-5" : "bg-white/40"
               )}
-              aria-label={`Ir para o slide ${index + 1}`}
             />
           ))}
         </div>
@@ -237,7 +240,7 @@ export default function Hero() {
           </div>
           <div>
             <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Domingos</p>
-            <h3 className="text-base font-bold text-foreground">Culto da Família</h3>
+            <h2 className="text-base font-bold text-foreground">Culto da Família</h2>
             <p className="text-sm text-foreground/75 font-light">Às 19:00h</p>
           </div>
         </div>
@@ -250,7 +253,7 @@ export default function Hero() {
           </div>
           <div>
             <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Quartas</p>
-            <h3 className="text-base font-bold text-foreground">Espaço para Deus</h3>
+            <h2 className="text-base font-bold text-foreground">Espaço para Deus</h2>
             <p className="text-sm text-foreground/75 font-light">Às 20:00h</p>
           </div>
         </div>
@@ -263,7 +266,7 @@ export default function Hero() {
           </div>
           <div>
             <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Localização</p>
-            <h3 className="text-base font-bold text-foreground">Itapema / SC</h3>
+            <h2 className="text-base font-bold text-foreground">Itapema / SC</h2>
             <a 
               href="#localizacao" 
               className="text-sm text-brand-accent hover:underline font-light flex items-center gap-1"

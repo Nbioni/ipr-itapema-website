@@ -61,7 +61,7 @@ export default function Location() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold tracking-wide text-foreground uppercase">Endereço</h4>
+                  <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">Endereço</h3>
                   <p className="text-foreground/75 font-light mt-1 text-sm md:text-base leading-relaxed">
                     Rua 618, nº 312 – Bairro Tabuleiro<br />
                     Itapema – SC, CEP 88220-000
@@ -81,7 +81,7 @@ export default function Location() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold tracking-wide text-foreground uppercase">Reuniões Semanais</h4>
+                  <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">Reuniões Semanais</h3>
                   <p className="text-foreground/75 font-light mt-1 text-sm md:text-base leading-relaxed">
                     <strong>Domingos:</strong> Culto da Família às 19h00<br />
                     <strong>Quartas-feiras:</strong> Culto Espaço para Deus às 20h00
