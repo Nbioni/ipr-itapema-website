@@ -88,7 +88,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 md:p-10 flex flex-col justify-between border-white/5 bg-gradient-to-br from-white/[0.04] to-transparent hover:scale-[1.01]"
+              className="glass-card p-8 md:p-10 flex flex-col justify-between border-white/5 bg-linear-to-br from-white/4 to-transparent hover:scale-[1.01]"
             >
               <div>
                 <div className="flex justify-between items-start gap-4 mb-6">
@@ -132,7 +132,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-brand-accent/20 transition-all duration-300 group"
+                className="p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-brand-accent/20 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-accent mb-4 group-hover:bg-brand-accent group-hover:text-brand-primary transition-all duration-300">
                   <feature.icon className="w-5 h-5" />

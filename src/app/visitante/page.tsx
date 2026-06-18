@@ -145,7 +145,7 @@ export default function VisitorPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="glass-card p-8 text-center border-emerald-500/20 bg-gradient-to-b from-emerald-500/[0.02] to-transparent shadow-2xl"
+              className="glass-card p-8 text-center border-emerald-500/20 bg-linear-to-b from-emerald-500/2 to-transparent shadow-2xl"
             >
               <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 mx-auto mb-6">
                 <CheckCircle2 className="w-10 h-10" />
@@ -179,7 +179,7 @@ export default function VisitorPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="glass-card p-6 md:p-8 shadow-2xl border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent"
+              className="glass-card p-6 md:p-8 shadow-2xl border-white/5 bg-linear-to-b from-white/2 to-transparent"
             >
               <div className="text-center mb-8">
                 <h1 className="font-serif text-3xl font-bold text-foreground">
@@ -212,7 +212,7 @@ export default function VisitorPage() {
                           "flex items-center gap-3 p-3 rounded-xl border transition-all duration-200 cursor-pointer select-none",
                           decisions[decision.key as keyof typeof decisions]
                             ? "bg-brand-accent/5 border-brand-accent text-brand-accent"
-                            : "bg-white/[0.01] border-white/5 hover:border-white/10 text-foreground/70"
+                            : "bg-white/1 border-white/5 hover:border-white/10 text-foreground/70"
                         )}
                       >
                         <input
@@ -321,7 +321,7 @@ export default function VisitorPage() {
                   />
                   <div
                     className={cn(
-                      "w-4.5 h-4.5 rounded border flex items-center justify-center mt-0.5 transition-all flex-shrink-0",
+                      "w-4.5 h-4.5 rounded border flex items-center justify-center mt-0.5 transition-all shrink-0",
                       formData.consentimento
                         ? "border-brand-accent bg-brand-accent text-brand-primary"
                         : "border-white/20 bg-transparent"
@@ -343,7 +343,7 @@ export default function VisitorPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-400 text-xs flex items-center gap-2"
                   >
-                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <AlertCircle className="w-4 h-4 shrink-0" />
                     <span>{errorMessage}</span>
                   </motion.div>
                 )}

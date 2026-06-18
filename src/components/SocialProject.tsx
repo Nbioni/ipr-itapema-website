@@ -60,7 +60,7 @@ export default function SocialProject() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group/carousel"
+              className="relative aspect-4/3 rounded-3xl overflow-hidden border border-white/10 shadow-2xl group/carousel"
             >
               {prprImages.map((src, index) => (
                 <div
@@ -82,7 +82,7 @@ export default function SocialProject() {
               ))}
 
               {/* Dark Gradient Overlay inside the image */}
-              <div className="absolute inset-0 z-1 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 z-1 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               
               {/* Manual navigation buttons (prev/next) */}
               <button
@@ -172,7 +172,7 @@ export default function SocialProject() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="text-center p-4 rounded-2xl bg-white/[0.02] border border-white/5"
+                  className="text-center p-4 rounded-2xl bg-white/2 border border-white/5"
                 >
                   <stat.icon className="w-5 h-5 mx-auto text-brand-accent mb-2" />
                   <p className="text-2xl font-serif font-bold text-foreground">{stat.value}</p>

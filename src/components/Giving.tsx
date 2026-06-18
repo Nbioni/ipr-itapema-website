@@ -59,7 +59,7 @@ export default function Giving() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mt-8 relative p-8 rounded-3xl border border-white/5 bg-white/[0.01] backdrop-blur-sm"
+              className="mt-8 relative p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm"
             >
               <div className="absolute top-4 left-4 text-brand-accent/25">
                 <Heart className="w-8 h-8 fill-current" />
@@ -80,7 +80,7 @@ export default function Giving() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass-card p-8 md:p-10 border-brand-accent/20 bg-gradient-to-b from-brand-accent/[0.03] to-transparent text-center flex flex-col items-center"
+              className="glass-card p-8 md:p-10 border-brand-accent/20 bg-linear-to-b from-brand-accent/3 to-transparent text-center flex flex-col items-center"
             >
               {/* Header inside the card */}
               <div className="mb-6">

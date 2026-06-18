@@ -69,7 +69,7 @@ export default function Essence() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.3 }}
-              className="mt-8 p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/[0.02]"
+              className="mt-8 p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/2"
             >
               <p className="font-serif italic text-brand-accent text-lg">
                 {"\"Não fomos criados apenas para fazer parte de um templo, mas para ser igreja onde quer que estejamos — amando de forma incondicional.\""}
@@ -88,7 +88,7 @@ export default function Essence() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="glass-card p-8 flex flex-col md:flex-row gap-6 items-start"
               >
-                <div className="flex-shrink-0 p-4 bg-brand-accent/10 rounded-2xl border border-brand-accent/20 text-brand-accent">
+                <div className="shrink-0 p-4 bg-brand-accent/10 rounded-2xl border border-brand-accent/20 text-brand-accent">
                   <pillar.icon className="w-8 h-8" />
                 </div>
                 <div>
