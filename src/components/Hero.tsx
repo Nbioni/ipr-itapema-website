@@ -93,7 +93,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="w-full bg-[#060913] pt-28 pb-8 px-4 md:px-8 flex flex-col items-center justify-center"
+      className="w-full bg-[#060913] pt-28 pb-8 px-2 md:px-8 flex flex-col items-center justify-center"
     >
       {/* Framed Hero Card */}
       <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center p-6 md:p-12 lg:p-16 group/card">
@@ -134,14 +134,14 @@ export default function Hero() {
         {/* Interactive manual navigation buttons (left/right) */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 hover:bg-white/15 text-white flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 opacity-80 group-hover/card:opacity-100 duration-300 border border-white/10 cursor-pointer"
+          className="absolute left-2 lg:left-4 bottom-0 lg:top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 hover:bg-white/15 text-white flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 opacity-80 group-hover/card:opacity-100 duration-300 border border-white/10 cursor-pointer"
           aria-label="Slide anterior"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 hover:bg-white/15 text-white flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 opacity-80 group-hover/card:opacity-100 duration-300 border border-white/10 cursor-pointer"
+          className="absolute right-2 lg:right-4 bottom-0 lg:top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 hover:bg-white/15 text-white flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 opacity-80 group-hover/card:opacity-100 duration-300 border border-white/10 cursor-pointer"
           aria-label="Próximo slide"
         >
           <ChevronRight className="w-5 h-5" />
