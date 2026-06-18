@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
     // Força o Next.js a otimizar a importação de pacotes de terceiros pesados
     optimizePackageImports: [
       'lucide-react', 
+      'framer-motion',
     ],
   },
   images: {
