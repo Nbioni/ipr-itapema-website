@@ -1,25 +1,84 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Play, CalendarDays, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const slides = [
-  "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1920", // Praia ao entardecer
-  "https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=1920", // Litoral crepúsculo
-  "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1920"  // Horizonte do mar
+  { type: "image", url: "/fotos_hero/foto_1.jpg" },
+  { type: "video", url: "/videos/ipr_1" },
+  { type: "video", url: "/videos/ipr_2" },
+  { type: "video", url: "/videos/ipr_3" },
+  { type: "video", url: "/videos/ipr_4" },
+  { type: "image", url: "/fotos_hero/foto_2.jpg" },
+  { type: "image", url: "/fotos_hero/foto_3.jpg" },
+  { type: "image", url: "/fotos_hero/foto_4.jpg" },
+  { type: "image", url: "/fotos_hero/foto_5.jpg" },
+  { type: "image", url: "/fotos_PRPR/PRPR_1.jpg" },
 ];
+
+interface VideoSlideProps {
+  url: string;
+  isActive: boolean;
+  onEnded: () => void;
+}
+
+function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isActive) {
+      video.currentTime = 0;
+      video.play().catch((err) => {
+        console.warn("Autoplay was prevented or video failed to play:", err);
+      });
+    } else {
+      video.pause();
+    }
+  }, [isActive]);
+
+  return (
+    <video
+      ref={videoRef}
+      muted
+      playsInline
+      onEnded={onEnded}
+      onError={() => {
+        console.error(`Error loading video: ${url}. Skipping...`);
+        onEnded();
+      }}
+      className="w-full h-full object-cover animate-fade-in"
+    >
+      <source src={`${url}.webm`} type="video/webm" />
+      <source src={`${url}.mp4`} type="video/mp4" />
+    </video>
+  );
+}
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const current = slides[currentSlide];
+    
+    if (current.type === "video") {
+      return;
+    }
+
+    const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
+
+  const handleVideoEnded = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -37,21 +96,36 @@ export default function Hero() {
       className="w-full bg-[#060913] pt-28 pb-8 px-4 md:px-8 flex flex-col items-center justify-center"
     >
       {/* Framed Hero Card */}
-      <div className="relative w-full max-w-[1440px] max-h-[668px] aspect-16/10 md:aspect-video min-h-[520px] md:min-h-[620px] rounded-[32px] overflow-hidden shadow-2xl flex items-end p-6 md:p-12 lg:p-16 group/card">
+      <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[32px] overflow-hidden shadow-2xl flex items-end p-6 md:p-12 lg:p-16 group/card">
         
         {/* Background Slideshow */}
-        {slides.map((url, index) => (
-          <div
-            key={url}
-            className={cn(
-              "absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out",
-              index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
-            )}
-            style={{
-              backgroundImage: `url('${url}')`,
-            }}
-          />
-        ))}
+        {slides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          return (
+            <div
+              key={slide.url}
+              className={cn(
+                "absolute inset-0 z-0 transition-all duration-1000 ease-in-out",
+                isActive ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              )}
+            >
+              {slide.type === "video" ? (
+                <VideoSlide
+                  url={slide.url}
+                  isActive={isActive}
+                  onEnded={handleVideoEnded}
+                />
+              ) : (
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('${slide.url}')`,
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
 
         {/* Gradient Overlay for Text Readability & Smooth Bottom Blend */}
         <div className="absolute inset-0 z-1 bg-linear-to-t from-[#060913] via-[#060913]/10 to-transparent" />
@@ -99,7 +173,7 @@ export default function Hero() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
             <span className="text-[10px] font-medium tracking-widest uppercase text-foreground/90">
-              Igreja Presbiteriana Renovada de Itapema
+              IPR Itapema
             </span>
           </motion.div>
 
@@ -110,7 +184,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-white leading-[1.15]"
           >
-            Um lugar para <span className="text-brand-accent italic font-bold">PERTENCER</span>
+            Uma <span className="font-bold">família</span> <br/>para <span className="text-brand-accent italic font-bold">PERTENCER</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -120,7 +194,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-sm md:text-base text-white/80 font-light leading-relaxed max-w-lg"
           >
-            Seja muito bem-vindo! Conecte-se com Deus, construa relacionamentos profundos e descubra o propósito de sua vida conosco.
+            Seja muito bem-vindo! Conecte-se com Deus, construa relacionamentos profundos e descubra seu propósito.
           </motion.p>
 
           {/* CTAs */}
@@ -155,28 +229,41 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
-        className="mt-8 w-full max-w-[1440px] glass-panel p-6 flex flex-col md:flex-row justify-between items-center gap-6 border-white/5 shadow-2xl relative"
+        className="mt-8 w-full max-w-[1440px] glass-panel p-3 flex flex-col md:flex-row justify-between items-center gap-6 border-white/5 shadow-2xl relative"
       >
-        <div className="flex items-center gap-4 text-left w-full md:w-auto">
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10 text-brand-accent">
-            <CalendarDays className="w-6 h-6" />
+        <div className="flex items-center gap-2 text-left w-full md:w-auto">
+          <div className="p-4 bg-white/5 rounded-xl border border-white/10 text-brand-accent">
+            <CalendarDays className="w-7 h-7" />
           </div>
           <div>
             <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Domingos</p>
-            <h3 className="text-lg font-bold text-foreground">Culto da Família</h3>
+            <h3 className="text-base font-bold text-foreground">Culto da Família</h3>
             <p className="text-sm text-foreground/75 font-light">Às 19:00h</p>
           </div>
         </div>
 
         <div className="hidden md:block w-px h-12 bg-white/10" />
 
+        <div className="flex items-center gap-2 text-left w-full md:w-auto">
+          <div className="p-4 bg-white/5 rounded-xl border border-white/10 text-brand-accent">
+            <CalendarDays className="w-7 h-7" />
+          </div>
+          <div>
+            <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Quartas</p>
+            <h3 className="text-base font-bold text-foreground">Espaço para Deus</h3>
+            <p className="text-sm text-foreground/75 font-light">Às 20:00h</p>
+          </div>
+        </div>
+
+        <div className="hidden md:block w-px h-12 bg-white/10" />
+
         <div className="flex items-center gap-4 text-left w-full md:w-auto">
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10 text-brand-accent">
-            <MapPin className="w-6 h-6" />
+          <div className="p-4 bg-white/5 rounded-xl border border-white/10 text-brand-accent">
+            <MapPin className="w-7 h-7" />
           </div>
           <div>
             <p className="text-xs text-foreground/50 uppercase tracking-widest font-semibold">Localização</p>
-            <h3 className="text-lg font-bold text-foreground">Itapema / SC</h3>
+            <h3 className="text-base font-bold text-foreground">Itapema / SC</h3>
             <a 
               href="#localizacao" 
               className="text-sm text-brand-accent hover:underline font-light flex items-center gap-1"

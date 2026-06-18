@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Cross, ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { ArrowUp } from "lucide-react";
 import { InstagramIcon, YoutubeIcon } from "./Icons";
 
 const socialLinks = [
@@ -36,20 +37,25 @@ export default function Footer() {
           
           {/* Logo & Info column */}
           <div className="md:col-span-5 flex flex-col items-start gap-4">
-            <Link href="#inicio" className="flex items-center gap-2 group">
-              <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-brand-accent/10 border border-brand-accent/20">
-                <Cross className="w-4 h-4 text-brand-accent" />
+            <Link href="#inicio" className="flex flex-col items-center gap-3 group">
+              <div className="relative w-32 h-32 overflow-hidden shrink-0">
+                <Image 
+                  src="/ipr_itapema_logo_dark.png" 
+                  alt="Logo IPR Itapema" 
+                  fill
+                  className="object-contain"
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg font-bold tracking-tight text-foreground leading-none">
-                  IPR Itapema
+              <div className="flex flex-col mt-1 text-sm md:text-md">
+                <span className="font-serif text-sm md:text-lg font-bold tracking-tight text-foreground leading-none">
+                  Igreja Presbiteriana
                 </span>
-                <span className="text-[9px] tracking-widest text-brand-accent uppercase font-semibold mt-0.5">
+                <span><span className="tracking-widest text-brand-accent uppercase font-bold mt-0.5">
                   Renovada
-                </span>
+                </span> de Itapema</span>
               </div>
             </Link>
-            <p className="text-foreground/50 text-sm font-light leading-relaxed max-w-sm mt-2">
+            <p className="text-foreground/75 text-sm font-normal leading-relaxed max-w-sm mt-2">
               Uma comunidade vibrante em Itapema, SC. Proclamando o evangelho da graça, amparando os necessitados e vivendo em família.
             </p>
           </div>
@@ -64,7 +70,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-foreground/60 hover:text-brand-accent hover:underline transition-all font-light"
+                    className="text-md text-foreground/60 hover:text-brand-accent hover:underline transition-all"
                   >
                     {link.name}
                   </a>
@@ -85,11 +91,9 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-foreground/60 hover:text-brand-accent transition-colors group"
+                  className="flex items-center gap-2 text-foreground/60 hover:text-brand-accent transition-colors group"
                 >
-                  <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:bg-brand-accent group-hover:text-brand-primary group-hover:border-brand-accent transition-all duration-300">
-                    <social.icon className="w-4 h-4" />
-                  </div>
+                  <social.icon className="w-4 h-4" />
                   <span className="font-light">{social.name}</span>
                 </a>
               ))}
@@ -101,17 +105,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center md:items-start gap-1">
-            <p className="text-xs text-foreground/40 font-light text-center md:text-left">
+            <p className="text-xs text-foreground/60 text-center md:text-left">
               &copy; {new Date().getFullYear()} Igreja Presbiteriana Renovada de Itapema. Todos os direitos reservados.
             </p>
-            <p className="text-[10px] text-foreground/30 font-mono">
+            <p className="text-[10px] text-foreground/60 font-mono">
               CNPJ: 76.357.144/0001-61
             </p>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full bg-white/5 border border-white/10 hover:border-brand-accent text-foreground/60 hover:text-brand-accent transition-all duration-300 active:scale-95 flex items-center justify-center shadow-lg hover:bg-white/10"
+            className="p-3 rounded-full hover:cursor-pointer bg-white/5 border border-white/10 hover:border-brand-accent text-foreground/80 hover:text-brand-accent transition-all duration-300 active:scale-95 flex items-center justify-center shadow-lg hover:bg-white/10"
             title="Voltar ao Topo"
           >
             <ArrowUp className="w-4 h-4" />

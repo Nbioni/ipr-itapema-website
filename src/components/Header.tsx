@@ -55,13 +55,13 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg md:text-xl font-bold tracking-tight text-foreground leading-none">
-                IPR Itapema
+            <div className="flex flex-col mt-1 text-sm md:text-md">
+              <span className="font-serif text-sm md:text-lg font-bold tracking-tight text-foreground leading-none">
+                Igreja Presbiteriana
               </span>
-              <span className="text-[10px] tracking-widest text-brand-accent uppercase font-semibold mt-0.5">
+              <span><span className="tracking-widest text-brand-accent uppercase font-bold mt-0.5">
                 Renovada
-              </span>
+              </span> de Itapema</span>
             </div>
           </Link>
 
@@ -71,7 +71,7 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-sm text-foreground/80 hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300"
+                className="p-2 text-sm text-foreground/80 hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300"
               >
                 {link.name}
               </a>

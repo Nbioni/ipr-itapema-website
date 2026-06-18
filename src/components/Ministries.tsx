@@ -6,7 +6,7 @@ import { InstagramIcon } from "./Icons";
 
 const ministryList = [
   {
-    title: "JC3 Jovens",
+    title: "JC3",
     subtitle: "Ministério de Jovens & Adolescentes",
     description: "Um movimento focado em viver o Evangelho de forma autêntica, intensa e relevante. Nossos encontros reúnem adoração, palavra viva, conexão real e muita comunhão. Se você busca o seu lugar, este é o JC3.",
     link: "https://www.instagram.com/jc3jovens",

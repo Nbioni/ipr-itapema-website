@@ -32,7 +32,7 @@ const features = [
   {
     icon: Sparkles,
     title: "Reino Kids",
-    description: "Espaço seguro e divertido para crianças de 0 a 10 anos, com atividades bíblicas adaptadas para a idade delas durante os cultos.",
+    description: "Espaço seguro e divertido para crianças de 3 a 12 anos, com atividades bíblicas adaptadas para a idade delas durante os cultos.",
   },
   {
     icon: Video,
