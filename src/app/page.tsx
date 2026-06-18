@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Essence from "@/components/Essence";
-import Services from "@/components/Services";
-import Ministries from "@/components/Ministries";
-import SocialProject from "@/components/SocialProject";
-import Giving from "@/components/Giving";
-import Location from "@/components/Location";
-import Footer from "@/components/Footer";
+
+const Essence = dynamic(() => import("@/components/Essence"));
+const Services = dynamic(() => import("@/components/Services"));
+const Ministries = dynamic(() => import("@/components/Ministries"));
+const SocialProject = dynamic(() => import("@/components/SocialProject"));
+const Giving = dynamic(() => import("@/components/Giving"));
+const Location = dynamic(() => import("@/components/Location"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   return (
