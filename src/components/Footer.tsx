@@ -43,6 +43,7 @@ export default function Footer() {
                   src="/ipr_itapema_logo_dark.png" 
                   alt="Logo IPR Itapema" 
                   fill
+                  sizes="128px"
                   className="object-contain"
                 />
               </div>

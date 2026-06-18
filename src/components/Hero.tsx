@@ -134,6 +134,7 @@ export default function Hero() {
                   alt="Hero slide"
                   fill
                   priority={currentSlide === 0}
+                  fetchPriority={currentSlide === 0 ? "high" : "auto"}
                   className="object-cover object-center"
                   sizes="(max-width: 1440px) 100vw, 1440px"
                 />

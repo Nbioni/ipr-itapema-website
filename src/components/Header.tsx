@@ -51,6 +51,7 @@ export default function Header() {
                 src="/ipr_itapema_logo_dark.png"
                 alt="IPR Itapema Logo"
                 fill
+                sizes="58px"
                 className="object-contain"
                 priority
               />
