@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.5%",
+    "not dead"
+  ],
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
