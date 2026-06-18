@@ -96,7 +96,7 @@ export default function Hero() {
       className="w-full bg-[#060913] pt-28 pb-8 px-4 md:px-8 flex flex-col items-center justify-center"
     >
       {/* Framed Hero Card */}
-      <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[32px] overflow-hidden shadow-2xl flex items-end p-6 md:p-12 lg:p-16 group/card">
+      <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center p-6 md:p-12 lg:p-16 group/card">
         
         {/* Background Slideshow */}
         {slides.map((slide, index) => {
@@ -163,16 +163,16 @@ export default function Hero() {
         </div>
 
         {/* Main Content inside the Card */}
-        <div className="relative z-10 max-w-2xl w-full text-left flex flex-col items-start gap-5">
+        <div className="relative z-10 max-w-3xl w-full text-left flex flex-col items-start gap-6 md:gap-8">
           {/* Top Tagline */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-            <span className="text-[10px] font-medium tracking-widest uppercase text-foreground/90">
+            <span className="text-xs font-medium tracking-widest uppercase text-foreground/90">
               IPR Itapema
             </span>
           </motion.div>
@@ -192,7 +192,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-base text-white/80 font-light leading-relaxed max-w-lg"
+            className="text-base md:text-lg lg:text-xl text-white/80 font-light leading-relaxed max-w-2xl"
           >
             Seja muito bem-vindo! Conecte-se com Deus, construa relacionamentos profundos e descubra seu propósito.
           </motion.p>
@@ -228,7 +228,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.8 }}
+        transition={{ duration: 1, delay: 2 }}
         className="mt-8 w-full max-w-[1440px] glass-panel p-3 flex flex-col md:flex-row justify-between items-center gap-6 border-white/5 shadow-2xl relative"
       >
         <div className="flex items-center gap-2 text-left w-full md:w-auto">
