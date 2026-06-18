@@ -48,14 +48,25 @@ function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
       muted
       playsInline
       onEnded={onEnded}
-      onError={() => {
+      onError={(e) => {
+        const target = e.target as HTMLElement;
+        // React's onError catches <source> errors. Ignore them here so the browser tries the fallback.
+        if (target && target.tagName === 'SOURCE') return;
+        
         console.error(`Error loading video: ${url}. Skipping...`);
         onEnded();
       }}
       className="w-full h-full object-cover animate-fade-in"
     >
       <source src={`${url}.webm`} type="video/webm" />
-      <source src={`${url}.mp4`} type="video/mp4" />
+      <source 
+        src={`${url}.mp4`} 
+        type="video/mp4" 
+        onError={() => {
+          console.error(`Fallback video error: ${url}.mp4. Skipping...`);
+          onEnded();
+        }}
+      />
     </video>
   );
 }
