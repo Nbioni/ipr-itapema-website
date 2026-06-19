@@ -34,9 +34,14 @@ function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
 
     if (isActive) {
       video.currentTime = 0;
-      video.play().catch((err) => {
-        console.warn("Autoplay was prevented or video failed to play:", err);
-      });
+      // Adicionando um pequeno delay para garantir que o play() seja executado sem conflito no iOS
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Autoplay prevented or failed:", err);
+          // Se falhar o play no mobile, tenta forçar via play() novamente ou ignora para não travar
+        });
+      }
     } else {
       video.pause();
     }
@@ -47,17 +52,17 @@ function VideoSlide({ url, isActive, onEnded }: VideoSlideProps) {
       ref={videoRef}
       muted
       playsInline
-      preload="none"
+      autoPlay
+      preload="auto"
       onEnded={onEnded}
       onError={(e) => {
         const target = e.target as HTMLElement;
-        // React's onError catches <source> errors. Ignore them here so the browser tries the fallback.
         if (target && target.tagName === 'SOURCE') return;
         
         console.error(`Error loading video: ${url}. Skipping...`);
         onEnded();
       }}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover bg-black/20"
     >
       <source src={`${url}.webm`} type="video/webm" />
       <source 
@@ -112,7 +117,7 @@ export default function Hero() {
       <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center p-6 md:p-12 lg:p-16 group/card">
         
         {/* Background Slideshow */}
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} mode="wait">
           <motion.div
             key={slides[currentSlide].url}
             initial={{ opacity: 0}}
