@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cross, ChevronLeft, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -135,9 +136,25 @@ export default function VisitorPage() {
           Voltar ao início
         </Link>
         
-        <div className="flex items-center gap-1.5">
-          <Cross className="w-4 h-4 text-brand-accent" />
-          <span className="font-serif text-sm font-bold tracking-wider">IPR ITAPEMA</span>
+        <div className="flex items-center gap-3">
+          <div className="relative w-[48px] h-[52px]">
+            <Image
+              src="/ipr_itapema_logo_dark.png"
+              alt="IPR Itapema Logo"
+              fill
+              sizes="48px"
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="flex flex-col mt-0.5 text-[11px] sm:text-xs">
+            <span className="font-serif font-bold tracking-tight text-foreground leading-none mb-0.5">
+              Igreja Presbiteriana
+            </span>
+            <span className="text-foreground/80 leading-none"><span className="tracking-widest text-brand-accent uppercase font-bold">
+              Renovada
+            </span> de Itapema</span>
+          </div>
         </div>
       </div>
 
@@ -337,7 +354,7 @@ export default function VisitorPage() {
                       <span className="text-[10px] leading-none font-bold">✓</span>
                     )}
                   </div>
-                  <span className="text-[10px] leading-relaxed font-light">
+                  <span className="text-[12px] leading-relaxed font-light">
                     Ao preencher e entregar esse formulário autorizo a Igreja Presbiteriana Renovada e/ou parte selecionada de uma membresia a entrar em contato comigo por telefone, e-mail ou WhatsApp por meio das informações fornecidas.
                   </span>
                 </label>
