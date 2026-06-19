@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cross, ChevronLeft, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { submitVisitor } from "@/app/actions/submit-visitor";
 
 export default function VisitorPage() {
   const [formData, setFormData] = useState({
@@ -88,25 +89,28 @@ export default function VisitorPage() {
     if (decisions.conhecendo) selectedDecisions.push("Apenas visitando / Conhecendo");
 
     try {
-      const response = await fetch("/api/visitor", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nome: formData.nome,
-          dataNascimento: formData.dataNascimento,
-          email: formData.email || "Não informado",
-          celular: formData.celular,
-          endereco: formData.endereco || "Não informado",
-          decisao: selectedDecisions.join(", ") || "Nenhuma decisão marcada",
-        }),
-      });
+      // Cria o FormData a ser enviado para a Server Action
+      const actionData = new FormData();
+      actionData.append("nome", formData.nome);
+      actionData.append("dataNascimento", formData.dataNascimento);
+      actionData.append("email", formData.email);
+      actionData.append("celular", formData.celular);
+      actionData.append("endereco", formData.endereco);
+      actionData.append("decisao", selectedDecisions.join(", "));
+      actionData.append("consentimento", formData.consentimento.toString());
+      
+      // Honeypot: Se for preenchido por um robô, a Action o descarta
+      const formElement = e.target as HTMLFormElement;
+      const botField = (formElement.elements.namedItem("bot_field") as HTMLInputElement)?.value || "";
+      actionData.append("bot_field", botField);
 
-      const result = await response.json();
+      // Chama a Server Action
+      const result = await submitVisitor(actionData);
 
-      if (response.ok && result.status === "success") {
+      if (result.success) {
         setStatus("success");
       } else {
-        throw new Error(result.message || "Erro desconhecido ao salvar os dados.");
+        throw new Error(result.error || "Erro desconhecido ao salvar os dados.");
       }
     } catch (err) {
       const error = err instanceof Error ? err : new Error("Erro desconhecido");
@@ -191,6 +195,8 @@ export default function VisitorPage() {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field (hidden from users, anti-spam) */}
+                <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
                 
                 {/* Section: Decisions */}
                 <div className="space-y-3">
