@@ -22,6 +22,14 @@ const menuLinks = [
   { name: "Localização", href: "#localizacao" },
 ];
 
+const institutionLinks = [
+  { name: "IPR do Brasil", href: "https://iprb.org.br/" },
+  { name: "Presbitério Catarinense", href: "https://renovada.app.br/" },
+  { name: "Missão Priscila e Áquila (MISPA)", href: "https://mispa.org.br/" },
+  { name: "Seminário Cianorte (SPRC)", href: "https://www.instagram.com/spr_cianorte/" },
+  { name: "Curso Teológico (Polo Itapema)", href: "https://www.instagram.com/teologia_polo_itapema/" },
+];
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -36,7 +44,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
           {/* Logo & Info column */}
-          <div className="md:col-span-5 flex flex-col items-start gap-4">
+          <div className="md:col-span-4 flex flex-col items-start gap-4">
             <Link href="#inicio" className="flex flex-col items-center gap-3 group">
               <div className="relative w-32 h-32 overflow-hidden shrink-0">
                 <Image 
@@ -62,11 +70,11 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-2">
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Navegação
             </h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+            <ul className="flex flex-col gap-3">
               {menuLinks.map((link) => (
                 <li key={link.name}>
                   <a
@@ -74,6 +82,27 @@ export default function Footer() {
                     className="text-md text-foreground/60 hover:text-brand-accent hover:underline transition-all"
                   >
                     {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Institutions Column */}
+          <div className="md:col-span-3">
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
+              Instituições
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {institutionLinks.map((inst) => (
+                <li key={inst.name}>
+                  <a
+                    href={inst.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-md text-foreground/60 hover:text-brand-accent hover:underline transition-all block leading-tight"
+                  >
+                    {inst.name}
                   </a>
                 </li>
               ))}
