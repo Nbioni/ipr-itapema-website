@@ -101,7 +101,7 @@ export default function SocialProject() {
               </button>
 
               {/* Floating Badge on Image */}
-              <div className="absolute bottom-6 left-6 right-6 z-10 glass-panel border-white/10 p-4 bg-background/70">
+              <div className="absolute bottom-6 left-6 right-6 z-10 glass-panel backdrop-blur-xs border-white/10 p-4 bg-background/70">
                 <span className="text-xs font-semibold uppercase tracking-widest text-brand-accent">Ação e Amor</span>
                 <p className="text-sm font-light text-foreground/90 mt-1">{"\"Levar esperança e amparo a quem mais precisa nas ruas de Itapema.\""}</p>
               </div>
@@ -109,14 +109,12 @@ export default function SocialProject() {
               {/* Pagination Dots inside the image container */}
               <div className="absolute top-6 right-6 z-10 flex gap-1.5 bg-black/35 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                 {prprImages.map((_, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setCurrentImage(index)}
                     className={cn(
-                      "w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                      index === currentImage ? "bg-brand-accent w-3" : "bg-white/40 hover:bg-white/60"
+                      "w-1.5 h-1.5 rounded-full transition-all duration-300",
+                      index === currentImage ? "bg-brand-accent w-3" : "bg-white/40"
                     )}
-                    aria-label={`Ir para a foto ${index + 1}`}
                   />
                 ))}
               </div>
