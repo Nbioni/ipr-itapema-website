@@ -46,7 +46,7 @@ export default function SocialProject() {
   };
 
   return (
-    <section id="projetos" className="py-24 relative overflow-hidden bg-brand-secondary/40">
+    <section id="projetos" className="py-28 relative overflow-hidden bg-brand-secondary/40">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 

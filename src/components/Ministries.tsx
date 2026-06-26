@@ -41,7 +41,7 @@ const ministryList = [
 
 export default function Ministries() {
   return (
-    <section id="ministerios" className="py-24 relative overflow-hidden bg-[#060913]">
+    <section id="ministerios" className="py-28 relative overflow-hidden bg-[#060913]">
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none" />
 

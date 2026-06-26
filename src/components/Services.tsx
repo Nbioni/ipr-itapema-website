@@ -45,7 +45,7 @@ const features = [
 
 export default function Services() {
   return (
-    <section id="cultos" className="py-24 relative overflow-hidden bg-brand-secondary/40">
+    <section id="cultos" className="py-28 relative overflow-hidden bg-brand-secondary/40">
       {/* Background Glow */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 

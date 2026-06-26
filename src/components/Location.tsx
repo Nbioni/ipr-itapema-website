@@ -10,7 +10,7 @@ export default function Location() {
   const embedMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.596555076801!2d-48.620084387963765!3d-27.10601417643455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b1bdbdf4e513%3A0x2f9b1fa7a95190df!2sIgreja%20Presbiteriana%20Renovada!5e0!3m2!1spt-BR!2sbr!4v1782486303564!5m2!1spt-BR!2sbr";
 
   return (
-    <section id="localizacao" className="py-24 relative overflow-hidden bg-brand-secondary/20">
+    <section id="localizacao" className="py-28 relative overflow-hidden bg-brand-secondary/20">
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
