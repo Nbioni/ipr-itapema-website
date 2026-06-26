@@ -29,11 +29,11 @@ export default function SocialProject() {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrentImage((prev) => (prev + 1) % prprImages.length);
     }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [currentImage]);
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -60,7 +60,7 @@ export default function SocialProject() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative aspect-4/3 rounded-3xl overflow-hidden border border-white/10 shadow-2xl group/carousel"
+              className="relative aspect-4/3.5 rounded-3xl overflow-hidden border border-white/10 shadow-2xl group/carousel"
             >
               {prprImages.map((src, index) => (
                 <div
