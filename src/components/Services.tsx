@@ -96,7 +96,7 @@ export default function Services() {
                 <div className="flex justify-between items-start gap-4 mb-6">
                   <div className="flex items-center gap-3 text-brand-accent">
                     <Clock className="w-6 h-6" />
-                    <span className="text-3xl font-serif font-black tracking-tight">{item.time}</span>
+                    <span className="text-3xl font-serif font-extrabold tracking-tight">{item.time}</span>
                   </div>
                   <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-foreground/85">
                     {item.badge}

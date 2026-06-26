@@ -7,16 +7,16 @@ import { InstagramIcon } from "./Icons";
 const ministryList = [
   {
     title: "JC3",
-    subtitle: "Ministério de Jovens & Adolescentes",
-    description: "Um movimento focado em viver o Evangelho de forma autêntica, intensa e relevante. Nossos encontros reúnem adoração, palavra viva, conexão real e muita comunhão. Se você busca o seu lugar, este é o JC3.",
+    subtitle: "Jovens & Adolescentes",
+    description: "Movimento dinâmico focado em adoração, conexão real e comunhão para jovens viverem o Evangelho com relevância.",
     link: "https://www.instagram.com/jc3jovens",
-    linkText: "Seguir JC3 no Instagram",
+    linkText: "Acompanhar no Instagram",
     logo: "/jc3_logo.png",
   },
   {
     title: "Reino Kids",
     subtitle: "Ministério Infantil",
-    description: "Cuidamos da próxima geração guiando os corações das crianças a amar a Jesus através de uma linguagem lúdica, teatro, música e ensinamentos práticos que fazem sentido para eles.",
+    description: "Ensino bíblico criativo e acolhedor para crianças, despertando o amor por Jesus de forma lúdica e prática.",
     link: "https://www.instagram.com/ipritapema/",
     linkText: "Acompanhar no Instagram",
     logo: "/reino_kids_logo.png",
@@ -24,18 +24,26 @@ const ministryList = [
   {
     title: "Rede Calebe",
     subtitle: "Ministério de Homens",
-    description: "Um espaço dedicado ao fortalecimento do homem cristão em suas responsabilidades como líder, pai, esposo e profissional. Nossos encontros visam o discipulado e a comunhão mútua.",
+    description: "Encontros de comunhão e discipulado focados no crescimento espiritual e papel do homem na sociedade.",
     link: "https://www.instagram.com/ipritapema/",
-    linkText: "Acompanhar Rede Calebe no Instagram",
+    linkText: "Acompanhar no Instagram",
     logo: "/rede_calebe_logo.png",
   },
   {
     title: "Rede Ester",
     subtitle: "Ministério Feminino",
-    description: "Encontros especiais projetados para fortalecer a identidade da mulher cristã, promover a cura interior, a comunhão e edificação através de painéis, chás e estudos focados.",
+    description: "Edificação e fortalecimento da identidade da mulher cristã através de comunhão, chás e painéis temáticos.",
     link: "https://www.instagram.com/ipritapema/",
-    linkText: "Acompanhar Rede Ester no Instagram",
+    linkText: "Acompanhar no Instagram",
     logo: "/rede_ester_logo.png",
+  },
+  {
+    title: "Aliança dos Para Sempre",
+    subtitle: "Rede de Casais",
+    description: "Fortalecimento do casamento e das famílias com base em princípios bíblicos, conexão prática e comunhão.",
+    link: "https://www.instagram.com/ipritapema/",
+    linkText: "Acompanhar no Instagram",
+    logo: "/alianca_dos_para_sempre.png",
   },
 ];
 
@@ -78,27 +86,27 @@ export default function Ministries() {
         </div>
 
         {/* Ministries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-stretch">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
           {ministryList.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card p-8 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="glass-card p-4 lg:p-6 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
             >
               {/* Highlight background glow */}
               <div className="absolute -right-20 -top-20 w-40 h-40 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none transition-all duration-500 group-hover:scale-125" />
 
               <div>
-                <div className="w-24 h-24 rounded-2xl overflow-hidden border border-white/10 mb-6 relative z-10 flex items-center justify-center bg-white/5 transition-colors group-hover:border-brand-accent/25">
+                <div className="relative w-full aspect-square mb-6 z-10 rounded-2xl overflow-hidden">
                   <Image
                     src={item.logo}
                     alt={item.title}
-                    width={96}
-                    height={96}
-                    className="object-cover w-full h-full"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 20vw"
+                    className="object-contain rounded-2xl"
                   />
                 </div>
 

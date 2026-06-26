@@ -37,9 +37,9 @@ export default function Header() {
     >
       <div
         className={cn(
-          "mx-auto max-w-[1440px] transition-all duration-500 glass-panel backdrop-blur-md py-3 px-6",
+          "mx-auto max-w-[1440px] rounded-2xl transition-all duration-500 backdrop-blur-lg py-3 px-6",
           isScrolled
-            ? "bg-background/60 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+            ? "bg-background/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             : "bg-transparent"
         )}
       >
@@ -72,7 +72,7 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className="p-2 text-sm text-foreground/80 hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300"
+                className="p-2 text-sm text-foreground hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300"
               >
                 {link.name}
               </a>
@@ -90,7 +90,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-foreground/80 hover:text-foreground hover:bg-white/5 rounded-xl transition-all duration-200"
+              className="lg:hidden p-2 text-foreground hover:bg-white/5 rounded-xl transition-all duration-200"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

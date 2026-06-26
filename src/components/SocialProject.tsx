@@ -2,9 +2,23 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Users, HandHelping, ArrowUpRight, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { Users, HandHelping, ArrowUpRight, Calendar, ChevronLeft, ChevronRight, Music } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+
+function SkateboardIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+      <path d="M3 17L4.20414 18.3379C4.58342 18.7594 5.12375 19 5.69073 19H18.3093C18.8762 19 19.4166 18.7594 19.7959 18.3379L21 17" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/>
+      <circle opacity="0.5" cx="7" cy="21" r="1" fill="currentColor"/>
+      <circle opacity="0.5" cx="17" cy="21" r="1" fill="currentColor"/>
+      <circle cx="19" cy="4" r="2" stroke="currentColor" strokeWidth={1.5}/>
+      <path d="M15 16.5004V15.2496C15 15.1657 15 15.1237 14.999 15.0843C14.9732 14.1062 14.4721 13.2021 13.6563 12.6619C13.6234 12.6401 13.5842 12.6155 13.5057 12.5665C13.4089 12.506 13.3604 12.4757 13.3291 12.4545C12.241 11.7158 12.1498 10.1461 13.145 9.2863C13.1735 9.2616 13.2125 9.23044 13.2903 9.16819L13.7358 8.81177C14.7607 7.99187 14.5413 6.37526 13.3349 5.85825C12.8119 5.6341 12.2123 5.68028 11.7297 5.98186L8.5 8.00044" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round"/>
+      <path opacity="0.5" d="M7 15.5H7.37868C8.73694 15.5 10.0396 14.9604 11 14" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round"/>
+      <path opacity="0.5" d="M16.5 10C17.8131 10.3283 19.1869 10.3283 20.5 10" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round"/>
+    </svg>
+  );
+}
 
 const prprImages = [
   "/fotos_PRPR/PRPR_1.jpg",
@@ -161,8 +175,55 @@ export default function SocialProject() {
               O Pelo Reino Pela Rua é um projeto social da IPR Itapema que, há 10 anos, oferece aulas gratuitas de música e skate para as crianças e jovens da comunidade. Contando com o apoio de mais de 15 voluntários ativos, acreditamos que o amor de Jesus se manifesta através de ações práticas, promovendo acolhimento, arte, esporte e inclusão em nosso município.
             </motion.p>
 
+            {/* Horários */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="mt-8"
+            >
+              <h3 className="text-sm font-semibold tracking-wide text-foreground/60 uppercase mb-4">Horários (Sábados)</h3>
+              <div className="flex flex-wrap gap-4 text-sm font-light leading-relaxed">
+                
+                {/* Card Música */}
+                <div className="flex-1 min-w-[240px] px-4 py-2 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
+                  <div className="flex items-center justify-between mb-2">
+                    <strong className="text-brand-accent text-lg font-semibold block transition-colors group-hover/card:text-brand-accent-hover">Aulas de Música</strong>
+                    <Music className="w-6 h-6 text-brand-accent/50 group-hover/card:text-brand-accent transition-colors" />
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-sm font-medium text-foreground/90">8h às 10h</span>
+                      <span className="text-sm text-foreground/50">Turma de 7 a 11 anos</span>
+                    </div>
+                    <div className="h-px bg-white/5" />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-sm font-medium text-foreground/90">9h30 às 11h30</span>
+                      <span className="text-sm text-foreground/50">Turma de 12+ anos</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Skate */}
+                <div className="flex-1 min-w-[240px] px-4 py-2 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
+                  <div className="flex items-center justify-between mb-2">
+                    <strong className="text-brand-accent text-lg font-semibold block transition-colors group-hover/card:text-brand-accent-hover">Aula de Skate</strong>
+                    <SkateboardIcon className="w-6 h-6 text-brand-accent/50 group-hover/card:text-brand-accent transition-colors" />
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-sm font-medium text-foreground/90">14h às 17h</span>
+                      <span className="text-sm text-foreground/50">A partir de 6 anos</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </motion.div>
+
             {/* Stats list */}
-            <div className="grid grid-cols-3 gap-4 my-10">
+            <div className="grid grid-cols-3 gap-4 my-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}

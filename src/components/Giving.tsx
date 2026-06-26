@@ -142,7 +142,7 @@ export default function Giving() {
               </div>
 
               {/* Bank Transfer alternative */}
-              <div className="flex items-center gap-3 text-xs text-foreground/50 font-light">
+              <div className="flex items-center gap-3 text-xs text-foreground/50 font-normal">
                 <Building2 className="w-4 h-4 text-brand-accent" />
                 <span>Favorecido: Igreja Presbiteriana Renovada de Itapema</span>
               </div>
