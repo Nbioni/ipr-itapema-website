@@ -9,12 +9,14 @@ const scheduleData = [
     title: "Culto Espaço para Deus",
     description: "Um momento precioso no meio da semana dedicado à oração, estudo profundo da Palavra e adoração intimista. Fortaleça sua caminhada espiritual.",
     badge: "Presencial + Live",
+    duration: "Duração média: 1h",
   },
   {
     time: "Domingo • 19:00h",
     title: "Culto da Família",
     description: "Nossa grande celebração semanal. Toda a comunidade reunida para adorar, ouvir uma mensagem inspiradora para o dia a dia e comunhão em família.",
     badge: "Presencial + Live",
+    duration: "Duração média: 2h",
   },
 ];
 
@@ -112,7 +114,7 @@ export default function Services() {
 
               <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-foreground/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-                Duração média: 1h20 • Recomendamos chegar 15 min antes.
+                {item.duration} • Recomendamos chegar 15 min antes.
               </div>
             </motion.div>
           ))}

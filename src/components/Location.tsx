@@ -6,8 +6,8 @@ import { MapPin, Navigation, Clock } from "lucide-react";
 export default function Location() {
   const mapUrl = "https://maps.app.goo.gl/qZ4hUEk9t1Dq1PaU8";
   
-  // URL de embed gratuita que não exige chave de API
-  const embedMapUrl = "https://maps.google.com/maps?q=Igreja%20Presbiteriana%20Renovada%20Itapema%20Rua%20618%20312&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  // URL de embed do Google Maps com o pino na localização exata
+  const embedMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.596555076801!2d-48.620084387963765!3d-27.10601417643455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b1bdbdf4e513%3A0x2f9b1fa7a95190df!2sIgreja%20Presbiteriana%20Renovada!5e0!3m2!1spt-BR!2sbr!4v1782486303564!5m2!1spt-BR!2sbr";
 
   return (
     <section id="localizacao" className="py-24 relative overflow-hidden bg-brand-secondary/20">
@@ -116,7 +116,7 @@ export default function Location() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative"
+              className="w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-2xl relative"
             >
               {/* Map Iframe */}
               <iframe
@@ -124,11 +124,11 @@ export default function Location() {
                 src={embedMapUrl}
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "grayscale(100%) invert(92%) contrast(83%) brightness(95%)" }} // Efeito elegante escurecido
+                style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="opacity-80 transition-all duration-1000 filter-[grayscale(100%)_invert(92%)_contrast(83%)_brightness(95%)] hover:filter-[grayscale(21%)_invert(7%)_contrast(100%)_brightness(77%)] hover:opacity-100"
               />
             </motion.div>
           </div>

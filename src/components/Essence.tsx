@@ -51,7 +51,7 @@ export default function Essence() {
               transition={{ delay: 0.1 }}
               className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-foreground mt-4 leading-tight"
             >
-              Uma igreja de portas abertas focada no que realmente importa.
+              Nós somos uma igreja viva, ativa e avivada. Somos a Renovada!
             </motion.h2>
 
             <motion.p
