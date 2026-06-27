@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cross, ChevronLeft, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { ChevronLeft, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { submitVisitor } from "@/app/actions/submit-visitor";
 

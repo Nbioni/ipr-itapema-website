@@ -15,6 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ipritapema.com.br"),
   title: "IPR Itapema | Igreja Presbiteriana Renovada",
   description: "Bem-vindo à Igreja Presbiteriana Renovada de Itapema, SC. Nossa missão é amar a Deus, amar as pessoas e ajudar cada um a descobrir o seu propósito. Participe do nosso culto da família aos domingos às 19h.",
   keywords: ["IPR Itapema", "Igreja Presbiteriana Renovada", "Igreja Itapema", "Culto de domingo Itapema", "JC3 Jovens", "Pelo Reino Pela Rua", "Igreja em Itapema"],
