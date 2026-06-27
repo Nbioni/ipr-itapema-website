@@ -15,13 +15,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.ipritapema.com.br"),
+  metadataBase: new URL("https://ipritapema.com.br"),
   title: "IPR Itapema | Igreja Presbiteriana Renovada",
   description: "Bem-vindo à Igreja Presbiteriana Renovada de Itapema, SC. Nossa missão é amar a Deus, amar as pessoas e ajudar cada um a descobrir o seu propósito. Participe do nosso culto da família aos domingos às 19h.",
   keywords: ["IPR Itapema", "Igreja Presbiteriana Renovada", "Igreja Itapema", "Culto de domingo Itapema", "JC3 Jovens", "Pelo Reino Pela Rua", "Igreja em Itapema"],
   authors: [{ name: "IPR Itapema" }],
   alternates: {
-    canonical: "https://www.ipritapema.com.br",
+    canonical: "https://ipritapema.com.br",
   },
   icons: {
     icon: "/favicon.png",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IPR Itapema | Igreja Presbiteriana Renovada",
     description: "Conecte-se conosco! Culto da Família aos domingos às 19h e Espaço para Deus às quartas às 20h.",
-    url: "https://www.ipritapema.com.br",
+    url: "https://ipritapema.com.br",
     siteName: "IPR Itapema",
     locale: "pt_BR",
     type: "website",
