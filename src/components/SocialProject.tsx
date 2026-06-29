@@ -187,7 +187,7 @@ export default function SocialProject() {
               <div className="flex flex-wrap gap-4 text-sm font-light leading-relaxed">
                 
                 {/* Card Música */}
-                <div className="flex-1 min-w-[240px] px-4 py-2 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
+                <div className="flex-1 min-w-[240px] px-5 py-4 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
                   <div className="flex items-center justify-between mb-2">
                     <strong className="text-brand-accent text-lg font-semibold block transition-colors group-hover/card:text-brand-accent-hover">Aulas de Música</strong>
                     <Music className="w-6 h-6 text-brand-accent/50 group-hover/card:text-brand-accent transition-colors" />
@@ -206,7 +206,7 @@ export default function SocialProject() {
                 </div>
 
                 {/* Card Skate */}
-                <div className="flex-1 min-w-[240px] px-4 py-2 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
+                <div className="flex-1 min-w-[240px] px-5 py-4 rounded-2xl bg-linear-to-b from-white/10 to-white/2 border border-brand-accent/15 hover:border-brand-accent/30 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-300 group/card">
                   <div className="flex items-center justify-between mb-2">
                     <strong className="text-brand-accent text-lg font-semibold block transition-colors group-hover/card:text-brand-accent-hover">Aula de Skate</strong>
                     <SkateboardIcon className="w-6 h-6 text-brand-accent/50 group-hover/card:text-brand-accent transition-colors" />
@@ -223,7 +223,7 @@ export default function SocialProject() {
             </motion.div>
 
             {/* Stats list */}
-            <div className="grid grid-cols-3 gap-4 my-4">
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-4 my-4 w-full">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -231,11 +231,11 @@ export default function SocialProject() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="text-center p-4 rounded-2xl bg-white/2 border border-white/5"
+                  className="text-center p-2.5 sm:p-4 rounded-2xl bg-white/2 border border-white/5"
                 >
-                  <stat.icon className="w-5 h-5 mx-auto text-brand-accent mb-2" />
-                  <p className="text-2xl font-serif font-bold text-foreground">{stat.value}</p>
-                  <p className="text-[10px] uppercase tracking-wider text-foreground/50 mt-1 font-medium">{stat.label}</p>
+                  <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 mx-auto text-brand-accent mb-1.5 sm:mb-2" />
+                  <p className="text-lg sm:text-2xl font-serif font-bold text-foreground">{stat.value}</p>
+                  <p className="text-[8px] sm:text-[10px] uppercase tracking-wider text-foreground/50 mt-1 font-medium">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

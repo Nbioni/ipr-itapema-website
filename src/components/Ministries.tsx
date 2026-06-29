@@ -86,7 +86,7 @@ export default function Ministries() {
         </div>
 
         {/* Ministries Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-2 lg:gap-6 items-stretch">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 lg:gap-6 items-stretch">
           {ministryList.map((item, index) => (
             <motion.div
               key={item.title}
@@ -94,13 +94,13 @@ export default function Ministries() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="glass-card p-2 lg:p-6 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
+              className="glass-card p-3.5 sm:p-5 lg:p-6 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
             >
               {/* Highlight background glow */}
               <div className="absolute -right-20 -top-20 w-40 h-40 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none transition-all duration-500 group-hover:scale-125" />
 
               <div>
-                <div className="relative w-full aspect-square mb-6 z-10 rounded-2xl overflow-hidden">
+                <div className="relative w-full aspect-square mb-4 lg:mb-6 z-10 rounded-2xl overflow-hidden">
                   <Image
                     src={item.logo}
                     alt={item.title}
@@ -110,18 +110,18 @@ export default function Ministries() {
                   />
                 </div>
 
-                <h3 className="text-2xl text-center sm:text-left font-serif font-bold text-foreground mb-1 relative z-10">
+                <h3 className="text-base sm:text-lg lg:text-2xl text-center sm:text-left font-serif font-bold text-foreground mb-1 relative z-10">
                   {item.title}
                 </h3>
-                <h4 className="text-xs text-center sm:text-left font-semibold tracking-wider text-foreground/50 uppercase mb-4 relative z-10">
+                <h4 className="text-[10px] sm:text-xs text-center sm:text-left font-semibold tracking-wider text-foreground/50 uppercase mb-3 relative z-10">
                   {item.subtitle}
                 </h4>
-                <p className="text-foreground/70 text-center sm:text-left font-light leading-relaxed text-[13px] sm:text-sm mb-8 relative z-10">
+                <p className="text-foreground/70 text-center sm:text-left font-light leading-relaxed text-[11px] sm:text-sm mb-4 lg:mb-8 relative z-10">
                   {item.description}
                 </p>
               </div>
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex justify-center sm:justify-start">
                 <a
                   href={item.link}
                   target="_blank"
