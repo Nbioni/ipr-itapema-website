@@ -26,12 +26,12 @@ const pillars = [
 
 export default function Essence() {
   return (
-    <section id="essencia" className="py-28 relative overflow-hidden bg-[#060913]">
+    <section id="essencia" className="py-16 md:py-28 relative overflow-hidden bg-[#060913]">
       {/* Background decoration */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
       
       <div className="mx-auto max-w-[1440px] pt-8 px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Heading and Editorial statement */}
           <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
@@ -49,7 +49,7 @@ export default function Essence() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.1 }}
-              className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-foreground mt-4 leading-tight"
+              className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-foreground mt-4 leading-tight"
             >
               Nós somos uma igreja viva, ativa e avivada. Somos a Renovada!
             </motion.h2>
@@ -69,16 +69,16 @@ export default function Essence() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.3 }}
-              className="mt-8 p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/2 w-full text-center lg:text-left"
+              className="mt-6 md:mt-8 p-5 md:p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/2 w-full text-center lg:text-left"
             >
-              <p className="font-serif italic text-brand-accent text-lg">
+              <p className="font-serif italic text-brand-accent text-base md:text-lg">
                 {"\"Não fomos criados apenas para fazer parte de um templo, mas para ser igreja onde quer que estejamos — amando de forma incondicional.\""}
               </p>
             </motion.div>
           </div>
 
           {/* Right Column: Pillars list */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-6">
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
@@ -86,16 +86,16 @@ export default function Essence() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-8 flex flex-col md:flex-row gap-6 items-start"
+                className="glass-card p-5 md:p-8 flex flex-row gap-4 md:gap-6 items-start"
               >
-                <div className="shrink-0 p-4 bg-brand-accent/10 rounded-2xl border border-brand-accent/20 text-brand-accent">
-                  <pillar.icon className="w-8 h-8" />
+                <div className="shrink-0 p-3 md:p-4 bg-brand-accent/10 rounded-xl md:rounded-2xl border border-brand-accent/20 text-brand-accent">
+                  <pillar.icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-serif font-bold text-foreground mb-2">
+                  <h3 className="text-lg md:text-xl font-serif font-bold text-foreground mb-1 md:mb-2">
                     {pillar.title}
                   </h3>
-                  <p className="text-foreground/75 font-light leading-relaxed">
+                  <p className="text-sm md:text-base text-foreground/75 font-light leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>

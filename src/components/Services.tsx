@@ -134,17 +134,19 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-brand-accent/20 transition-all duration-300 group"
+                className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-brand-accent/20 transition-all duration-300 group flex flex-row gap-4 items-start"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-accent mb-3 sm:mb-4 group-hover:bg-brand-accent group-hover:text-brand-primary transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-accent shrink-0 group-hover:bg-brand-accent group-hover:text-brand-primary transition-all duration-300">
                   <feature.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <h5 className="text-base sm:text-lg font-serif font-bold text-foreground mb-1.5 sm:mb-2">
-                  {feature.title}
-                </h5>
-                <p className="text-xs sm:text-sm text-foreground/60 font-light leading-relaxed">
-                  {feature.description}
-                </p>
+                <div>
+                  <h5 className="text-base sm:text-lg font-serif font-bold text-foreground mb-1.5 sm:mb-2">
+                    {feature.title}
+                  </h5>
+                  <p className="text-[13px] sm:text-sm text-foreground/60 font-light leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
