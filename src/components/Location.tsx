@@ -14,11 +14,11 @@ export default function Location() {
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="mx-auto max-w-[1440px] px-4 md:px-8 relative z-10">
+      <div className="mx-auto max-w-[1440px] px-3 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Column: Contact and Directions info */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -48,7 +48,7 @@ export default function Location() {
               Ficaremos muito felizes em receber você e sua família! Nosso templo é confortável, climatizado, possui espaço dedicado para as crianças e equipes preparadas para te acolher.
             </motion.p>
 
-            <div className="mt-10 flex flex-col gap-6">
+            <div className="mt-10 flex flex-col gap-6 w-full max-w-md mx-auto lg:mx-0 text-left">
               {/* Address */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}

@@ -49,7 +49,7 @@ export default function Services() {
       {/* Background Glow */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="mx-auto max-w-[1440px] px-4 md:px-8 relative z-10">
+      <div className="mx-auto max-w-[1440px] px-3 md:px-8 relative z-10">
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -82,7 +82,7 @@ export default function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {scheduleData.map((item, index) => (
             <motion.div
               key={item.time}
@@ -90,29 +90,29 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 md:p-10 flex flex-col justify-between border-white/5 bg-linear-to-br from-white/4 to-transparent hover:scale-[1.01]"
+              className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between border-white/5 bg-linear-to-br from-white/4 to-transparent hover:scale-[1.01]"
             >
               <div>
-                <div className="flex justify-between items-start gap-4 mb-6">
-                  <div className="flex items-center gap-3 text-brand-accent">
-                    <Clock className="w-6 h-6" />
-                    <span className="text-3xl font-serif font-extrabold tracking-tight">{item.time}</span>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
+                  <div className="flex items-center gap-2.5 text-brand-accent">
+                    <Clock className="w-5 h-5 md:w-6 md:h-6" />
+                    <span className="text-xl sm:text-2xl md:text-3xl font-serif font-extrabold tracking-tight">{item.time}</span>
                   </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-foreground/85">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-white/5 border border-white/10 text-foreground/85 shrink-0 self-start sm:self-auto">
                     {item.badge}
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-foreground mb-3">
                   {item.title}
                 </h3>
                 
-                <p className="text-foreground/75 font-light leading-relaxed mb-6">
+                <p className="text-foreground/75 text-sm md:text-base font-light leading-relaxed mb-5">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-foreground/60">
+              <div className="pt-3 border-t border-white/10 flex items-center gap-2 text-[11px] sm:text-xs text-foreground/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
                 {item.duration} • Recomendamos chegar 15 min antes.
               </div>

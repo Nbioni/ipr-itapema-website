@@ -34,7 +34,7 @@ export default function Essence() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Column: Heading and Editorial statement */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
+          <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +69,7 @@ export default function Essence() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.3 }}
-              className="mt-8 p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/2"
+              className="mt-8 p-6 rounded-2xl border border-brand-accent/15 bg-brand-accent/2 w-full text-center lg:text-left"
             >
               <p className="font-serif italic text-brand-accent text-lg">
                 {"\"Não fomos criados apenas para fazer parte de um templo, mas para ser igreja onde quer que estejamos — amando de forma incondicional.\""}

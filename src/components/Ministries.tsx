@@ -53,10 +53,10 @@ export default function Ministries() {
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="mx-auto max-w-[1440px] px-4 md:px-8 relative z-10">
+      <div className="mx-auto max-w-[1440px] px-3 md:px-8 relative z-10">
         
         {/* Title */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-16 text-center md:text-left mx-auto md:mx-0">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,14 +79,14 @@ export default function Ministries() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-foreground/70 text-base md:text-lg font-light max-w-2xl"
+            className="mt-4 text-foreground/70 text-base md:text-lg font-light max-w-2xl mx-auto md:mx-0"
           >
             Temos espaços preparados para todas as idades e fases da vida. Descubra onde você se encaixa e faça parte da nossa família.
           </motion.p>
         </div>
 
         {/* Ministries Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-2 lg:gap-6 items-stretch">
           {ministryList.map((item, index) => (
             <motion.div
               key={item.title}
@@ -94,7 +94,7 @@ export default function Ministries() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="glass-card p-4 lg:p-6 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
+              className="glass-card p-2 lg:p-6 border-white/5 bg-linear-to-b from-white/2 to-transparent flex flex-col justify-between hover:scale-[1.02] hover:border-brand-accent/25 hover:from-brand-accent/2 hover:to-transparent transition-all duration-500 relative overflow-hidden group"
             >
               {/* Highlight background glow */}
               <div className="absolute -right-20 -top-20 w-40 h-40 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none transition-all duration-500 group-hover:scale-125" />
@@ -110,13 +110,13 @@ export default function Ministries() {
                   />
                 </div>
 
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-1 relative z-10">
+                <h3 className="text-2xl text-center sm:text-left font-serif font-bold text-foreground mb-1 relative z-10">
                   {item.title}
                 </h3>
-                <h4 className="text-xs font-semibold tracking-wider text-foreground/50 uppercase mb-4 relative z-10">
+                <h4 className="text-xs text-center sm:text-left font-semibold tracking-wider text-foreground/50 uppercase mb-4 relative z-10">
                   {item.subtitle}
                 </h4>
-                <p className="text-foreground/70 font-light leading-relaxed text-sm mb-8 relative z-10">
+                <p className="text-foreground/70 text-center sm:text-left font-light leading-relaxed text-[13px] sm:text-sm mb-8 relative z-10">
                   {item.description}
                 </p>
               </div>
@@ -126,7 +126,7 @@ export default function Ministries() {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-brand-accent hover:text-brand-accent-hover transition-colors group/link"
+                  className="inline-flex justify-center items-center gap-2 text-xs font-semibold text-brand-accent hover:text-brand-accent-hover transition-colors group/link"
                 >
                   <InstagramIcon className="w-4 h-4 transition-transform group-hover/link:scale-110" />
                   {item.linkText}

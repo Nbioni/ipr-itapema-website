@@ -20,11 +20,11 @@ export default function Giving() {
       {/* Decorative Blur Background */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="mx-auto max-w-[1440px] px-4 md:px-8 relative z-10">
+      <div className="mx-auto max-w-[1440px] px-3 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Column: Verse & Message */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -59,15 +59,15 @@ export default function Giving() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mt-8 relative p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm"
+              className="mt-8 relative p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm w-full"
             >
               <div className="absolute top-4 left-4 text-brand-accent/25">
                 <Heart className="w-8 h-8 fill-current" />
               </div>
-              <p className="font-serif text-lg text-foreground/90 italic pl-6 leading-relaxed">
+              <p className="font-serif text-lg text-foreground/90 italic pl-6 lg:pl-6 text-center lg:text-left leading-relaxed">
                 {"\"Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria.\""}
               </p>
-              <p className="text-right text-xs font-semibold tracking-wider text-brand-accent uppercase mt-4">
+              <p className="text-center lg:text-right text-xs font-semibold tracking-wider text-brand-accent uppercase mt-4">
                 2 Coríntios 9:7
               </p>
             </motion.div>

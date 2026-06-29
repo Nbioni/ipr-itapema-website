@@ -40,41 +40,44 @@ export default function Footer() {
       {/* Decorative ocean background image pattern at the very bottom (optional, using pure css grid or subtle glow) */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="mx-auto max-w-[1440px] px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-8 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-12 md:gap-x-6 md:gap-y-12 mb-16">
           
           {/* Logo & Info column */}
-          <div className="md:col-span-4 flex flex-col items-start gap-4">
-            <Link href="#inicio" className="flex flex-col items-center gap-3 group">
-              <div className="relative w-32 h-32 overflow-hidden shrink-0">
+          <div className="col-span-2 md:col-span-4 flex flex-row md:flex-col items-start gap-4 md:gap-4 w-full">
+            <Link href="#inicio" className="shrink-0 group">
+              <div className="relative w-24 h-24 md:w-28 md:h-28 overflow-hidden">
                 <Image 
                   src="/ipr_itapema_logo_dark.png" 
                   alt="Logo IPR Itapema" 
                   fill
-                  sizes="128px"
+                  sizes="(max-width: 768px) 64px, 112px"
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col mt-1 text-sm md:text-md">
-                <span className="font-serif text-sm md:text-lg font-bold tracking-tight text-foreground leading-none">
+            </Link>
+            
+            <div className="flex flex-col text-left">
+              <Link href="#inicio" className="group">
+                <span className="font-serif text-sm md:text-lg font-bold tracking-tight text-foreground leading-none block">
                   Igreja Presbiteriana
                 </span>
-                <span><span className="tracking-widest text-brand-accent uppercase font-bold mt-0.5">
+                <span className="text-xs md:text-sm mt-1 block"><span className="tracking-widest text-brand-accent uppercase font-bold text-xs md:text-sm">
                   Renovada
                 </span> de Itapema</span>
-              </div>
-            </Link>
-            <p className="text-foreground/75 text-sm font-normal leading-relaxed max-w-sm mt-2">
-              Uma comunidade vibrante em Itapema, SC. Proclamando o evangelho da graça, amparando os necessitados e vivendo em família.
-            </p>
+              </Link>
+              <p className="text-foreground/75 text-xs md:text-sm font-normal leading-relaxed mt-2">
+                Uma comunidade vibrante em Itapema, SC. Proclamando o evangelho da graça, amparando os necessitados e vivendo em família.
+              </p>
+            </div>
           </div>
 
           {/* Quick Links Column */}
-          <div className="md:col-span-2">
+          <div className="col-span-2 md:col-span-2">
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Navegação
             </h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="grid grid-cols-2 md:grid-cols-1 gap-3">
               {menuLinks.map((link) => (
                 <li key={link.name}>
                   <a
@@ -89,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Institutions Column */}
-          <div className="md:col-span-3">
+          <div className="col-span-1 md:col-span-3">
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Instituições
             </h4>
@@ -110,7 +113,7 @@ export default function Footer() {
           </div>
 
           {/* Socials Column */}
-          <div className="md:col-span-3">
+          <div className="col-span-1 md:col-span-3">
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Conecte-se
             </h4>
@@ -124,7 +127,7 @@ export default function Footer() {
                   className="flex items-center gap-2 text-foreground/60 hover:text-brand-accent transition-colors group"
                 >
                   <social.icon className="w-4 h-4" />
-                  <span className="font-light">{social.name}</span>
+                  <span className="font-light leading-tight">{social.name}</span>
                 </a>
               ))}
             </div>
