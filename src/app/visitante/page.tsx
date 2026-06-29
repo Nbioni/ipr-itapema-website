@@ -127,28 +127,28 @@ export default function VisitorPage() {
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Bar */}
-      <div className="w-full max-w-md mx-auto flex items-center justify-between mb-8 z-10">
+      <div className="w-full max-w-md md:max-w-2xl mx-auto flex items-center justify-between mb-8 z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs text-foreground/50 hover:text-brand-accent transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs md:text-sm text-foreground/50 hover:text-brand-accent transition-colors"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           Voltar ao início
         </Link>
         
         <div className="flex items-center gap-3">
-          <div className="relative w-[48px] h-[52px]">
+          <div className="relative w-[48px] h-[52px] md:w-[56px] md:h-[60px]">
             <Image
               src="/ipr_itapema_logo_dark.png"
               alt="IPR Itapema Logo"
               fill
-              sizes="48px"
+              sizes="(max-width: 768px) 48px, 56px"
               className="object-contain"
               priority
             />
           </div>
-          <div className="flex flex-col mt-0.5 text-[11px] sm:text-xs">
-            <span className="font-serif font-bold tracking-tight text-foreground leading-none mb-0.5">
+          <div className="flex flex-col mt-0.5 text-[11px] sm:text-xs md:text-sm">
+            <span className="font-serif font-bold tracking-tight text-foreground leading-none mb-0.5 md:mb-1">
               Igreja Presbiteriana
             </span>
             <span className="text-foreground/80 leading-none"><span className="tracking-widest text-brand-accent uppercase font-bold">
@@ -158,7 +158,7 @@ export default function VisitorPage() {
         </div>
       </div>
 
-      <main className="flex-1 flex flex-col justify-center w-full max-w-md mx-auto z-10">
+      <main className="flex-1 flex flex-col justify-center w-full max-w-md md:max-w-2xl mx-auto z-10">
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
@@ -166,30 +166,30 @@ export default function VisitorPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="glass-card p-8 text-center border-emerald-500/20 bg-linear-to-b from-emerald-500/2 to-transparent shadow-2xl"
+              className="glass-card p-8 md:p-12 text-center border-emerald-500/20 bg-linear-to-b from-emerald-500/2 to-transparent shadow-2xl"
             >
-              <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 mx-auto mb-6">
-                <CheckCircle2 className="w-10 h-10" />
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 mx-auto mb-6">
+                <CheckCircle2 className="w-10 h-10 md:w-12 md:h-12" />
               </div>
               
-              <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Seja muito bem-vindo!
               </h2>
               
-              <p className="text-foreground/75 font-light leading-relaxed mb-8">
+              <p className="text-foreground/75 font-light leading-relaxed mb-8 text-sm md:text-base">
                 Recebemos suas informações com carinho. É um privilégio ter você hoje conosco adorando ao Senhor!
               </p>
 
-              <div className="p-5 rounded-2xl bg-brand-accent/10 border border-brand-accent/30 text-brand-accent mb-8">
-                <p className="text-sm font-semibold uppercase tracking-wider">Presente de Boas-Vindas</p>
-                <p className="text-xs font-light text-foreground/90 mt-1 leading-relaxed">
+              <div className="p-5 md:p-6 rounded-2xl bg-brand-accent/10 border border-brand-accent/30 text-brand-accent mb-8">
+                <p className="text-sm md:text-base font-semibold uppercase tracking-wider">Presente de Boas-Vindas</p>
+                <p className="text-xs md:text-sm font-light text-foreground/90 mt-1.5 leading-relaxed">
                   Apresente esta tela na recepção da igreja ao final do culto para retirar o seu brinde de boas-vindas.
                 </p>
               </div>
 
               <Link
                 href="/"
-                className="inline-flex items-center justify-center w-full py-4 text-xs font-bold tracking-widest text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover rounded-full transition-all duration-300"
+                className="inline-flex items-center justify-center w-full py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover rounded-full transition-all duration-300"
               >
                 Conhecer a Igreja
               </Link>
@@ -200,13 +200,13 @@ export default function VisitorPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="glass-card p-6 md:p-8 shadow-2xl border-white/5 bg-linear-to-b from-white/2 to-transparent"
+              className="glass-card p-6 md:p-10 shadow-2xl border-white/5 bg-linear-to-b from-white/2 to-transparent"
             >
               <div className="text-center mb-8">
-                <h1 className="font-serif text-3xl font-bold text-foreground">
+                <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
                   Cartão de Boas-Vindas
                 </h1>
-                <p className="text-xs text-foreground/60 font-light mt-2 max-w-xs mx-auto">
+                <p className="text-xs md:text-sm text-foreground/60 font-light mt-2 max-w-xs md:max-w-md mx-auto">
                   Preencha os dados abaixo e retire seu brinde especial na recepção após o culto.
                 </p>
               </div>
@@ -217,11 +217,11 @@ export default function VisitorPage() {
                 
                 {/* Section: Decisions */}
                 <div className="space-y-3">
-                  <label className="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-2">
+                  <label className="text-xs md:text-sm font-semibold text-brand-accent uppercase tracking-wider block mb-2">
                     Qual foi sua decisão hoje?
                   </label>
                   
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                     {[
                       { key: "membro", label: "Já sou evangélico e quero ser membro da IPRI" },
                       { key: "reconciliar", label: "Reconciliar-me com Cristo" },
@@ -232,7 +232,7 @@ export default function VisitorPage() {
                       <label
                         key={decision.key}
                         className={cn(
-                          "flex items-center gap-3 p-3 rounded-xl border transition-all duration-200 cursor-pointer select-none",
+                          "flex items-center gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl border transition-all duration-200 cursor-pointer select-none",
                           decisions[decision.key as keyof typeof decisions]
                             ? "bg-brand-accent/5 border-brand-accent text-brand-accent"
                             : "bg-white/1 border-white/5 hover:border-white/10 text-foreground/70"
@@ -246,17 +246,17 @@ export default function VisitorPage() {
                         />
                         <div
                           className={cn(
-                            "w-4 h-4 rounded border flex items-center justify-center transition-all",
+                            "w-4 h-4 md:w-5 md:h-5 rounded border flex items-center justify-center transition-all shrink-0",
                             decisions[decision.key as keyof typeof decisions]
                               ? "border-brand-accent bg-brand-accent text-brand-primary"
                               : "border-white/20 bg-transparent"
                           )}
                         >
                           {decisions[decision.key as keyof typeof decisions] && (
-                            <span className="text-[10px] leading-none font-bold">✓</span>
+                            <span className="text-[10px] md:text-xs leading-none font-bold">✓</span>
                           )}
                         </div>
-                        <span className="text-xs font-light">{decision.label}</span>
+                        <span className="text-xs md:text-sm font-light leading-snug">{decision.label}</span>
                       </label>
                     ))}
                   </div>
@@ -264,7 +264,7 @@ export default function VisitorPage() {
 
                 {/* Section: Personal Info */}
                 <div className="space-y-4">
-                  <label className="text-xs font-semibold text-brand-accent uppercase tracking-wider block">
+                  <label className="text-xs md:text-sm font-semibold text-brand-accent uppercase tracking-wider block">
                     Dados Pessoais
                   </label>
 
@@ -277,12 +277,12 @@ export default function VisitorPage() {
                       onChange={handleInputChange}
                       placeholder="Nome Completo *"
                       required
-                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder-foreground/30 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl md:rounded-2xl px-4 py-3 md:px-5 md:py-4 text-sm md:text-base text-foreground placeholder-foreground/30 transition-all outline-none"
                     />
                   </div>
 
                   {/* Nascimento e Celular Row */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 md:gap-6">
                     <div>
                       <input
                         type="text"
@@ -291,7 +291,7 @@ export default function VisitorPage() {
                         onChange={handleInputChange}
                         placeholder="Nascimento * (DD/MM/AAAA)"
                         required
-                        className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder-foreground/30 transition-all outline-none"
+                        className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl md:rounded-2xl px-4 py-3 md:px-5 md:py-4 text-sm md:text-base text-foreground placeholder-foreground/30 transition-all outline-none"
                       />
                     </div>
                     <div>
@@ -302,21 +302,9 @@ export default function VisitorPage() {
                         onChange={handleInputChange}
                         placeholder="Celular * (99) 99999-9999"
                         required
-                        className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder-foreground/30 transition-all outline-none"
+                        className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl md:rounded-2xl px-4 py-3 md:px-5 md:py-4 text-sm md:text-base text-foreground placeholder-foreground/30 transition-all outline-none"
                       />
                     </div>
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="E-mail (opcional)"
-                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder-foreground/30 transition-all outline-none"
-                    />
                   </div>
 
                   {/* Endereço */}
@@ -327,13 +315,25 @@ export default function VisitorPage() {
                       value={formData.endereco}
                       onChange={handleInputChange}
                       placeholder="Endereço (Rua, Nº, Bairro, Cidade)"
-                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder-foreground/30 transition-all outline-none"
+                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl md:rounded-2xl px-4 py-3 md:px-5 md:py-4 text-sm md:text-base text-foreground placeholder-foreground/30 transition-all outline-none"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="E-mail (opcional)"
+                      className="w-full bg-white/5 border border-white/10 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 rounded-xl md:rounded-2xl px-4 py-3 md:px-5 md:py-4 text-sm md:text-base text-foreground placeholder-foreground/30 transition-all outline-none"
                     />
                   </div>
                 </div>
 
                 {/* Consent checkbox */}
-                <label className="flex gap-3 items-start select-none cursor-pointer text-foreground/60 hover:text-foreground/85 transition-colors">
+                <label className="flex gap-3 md:gap-4 items-start select-none cursor-pointer text-foreground/60 hover:text-foreground/85 transition-colors">
                   <input
                     type="checkbox"
                     name="consentimento"
@@ -344,17 +344,17 @@ export default function VisitorPage() {
                   />
                   <div
                     className={cn(
-                      "w-4.5 h-4.5 rounded border flex items-center justify-center mt-0.5 transition-all shrink-0",
+                      "w-4.5 h-4.5 md:w-5 md:h-5 rounded border flex items-center justify-center mt-0.5 transition-all shrink-0",
                       formData.consentimento
                         ? "border-brand-accent bg-brand-accent text-brand-primary"
                         : "border-white/20 bg-transparent"
                     )}
                   >
                     {formData.consentimento && (
-                      <span className="text-[10px] leading-none font-bold">✓</span>
+                      <span className="text-[10px] md:text-xs leading-none font-bold">✓</span>
                     )}
                   </div>
-                  <span className="text-[12px] leading-relaxed font-light">
+                  <span className="text-xs md:text-sm leading-relaxed font-light">
                     Ao preencher e entregar esse formulário autorizo a Igreja Presbiteriana Renovada e/ou parte selecionada de uma membresia a entrar em contato comigo por telefone, e-mail ou WhatsApp por meio das informações fornecidas.
                   </span>
                 </label>
@@ -376,18 +376,18 @@ export default function VisitorPage() {
                   type="submit"
                   disabled={status === "loading"}
                   className={cn(
-                    "w-full py-4 text-xs font-semibold tracking-wider text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover rounded-full transition-all duration-300 active:scale-98 flex items-center justify-center gap-2",
+                    "w-full py-4 md:py-5 text-xs md:text-sm font-semibold tracking-wider text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover rounded-full transition-all duration-300 active:scale-98 flex items-center justify-center gap-2",
                     status === "loading" && "opacity-75 cursor-not-allowed"
                   )}
                 >
                   {status === "loading" ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-brand-primary border-t-transparent rounded-full animate-spin" />
+                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-brand-primary border-t-transparent rounded-full animate-spin" />
                       Enviando...
                     </>
                   ) : (
                     <>
-                      <Send className="w-3.5 h-3.5" />
+                      <Send className="w-3.5 h-3.5 md:w-4 md:h-4" />
                       Confirmar Presença
                     </>
                   )}
@@ -399,7 +399,7 @@ export default function VisitorPage() {
       </main>
 
       {/* Footer copyright */}
-      <footer className="w-full max-w-md mx-auto text-center mt-8 text-[10px] text-foreground/30 font-light z-10">
+      <footer className="w-full max-w-md md:max-w-2xl mx-auto text-center mt-8 text-[10px] md:text-xs text-foreground/30 font-light z-10">
         © {new Date().getFullYear()} IPR Itapema • Termos em conformidade com a LGPD.
       </footer>
     </div>
