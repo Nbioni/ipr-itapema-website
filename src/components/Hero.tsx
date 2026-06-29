@@ -114,7 +114,7 @@ export default function Hero() {
       className="w-full bg-[#060913] pt-28 pb-8 px-2 md:px-8 flex flex-col items-center justify-center"
     >
       {/* Framed Hero Card */}
-      <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center p-6 md:p-12 lg:p-16 group/card">
+      <div className="relative w-full max-w-[1440px] max-h-[750px] aspect-4/3 md:aspect-video min-h-[600px] md:min-h-[720px] rounded-[16px] overflow-hidden shadow-2xl flex items-center px-4 py-6 md:p-12 lg:p-16 group/card">
         
         {/* Background Slideshow */}
         <AnimatePresence initial={false} mode="wait">
@@ -188,10 +188,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-2.5 py-1 sm:px-4 sm:py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-            <span className="text-xs font-medium tracking-widest uppercase text-foreground/90">
+            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-foreground/90">
               IPR Itapema
             </span>
           </motion.div>
@@ -221,13 +221,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-row gap-6 items-center w-full mt-2"
+            className="flex flex-row gap-4 sm:gap-6 items-center w-full mt-2"
           >
             <a
               href="https://www.youtube.com/@ipritapema6081/streams"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3 font-semibold text-xs tracking-wider text-white uppercase bg-white/10 hover:bg-white/20 backdrop-blur border border-white/15 active:scale-95 rounded-xl transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 sm:gap-2.5 py-2.5 px-3 sm:px-6 sm:py-3 font-semibold text-[10px] sm:text-xs tracking-wider text-white uppercase bg-white/10 hover:bg-white/20 backdrop-blur border border-white/15 active:scale-95 rounded-xl transition-all duration-300"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               Assista Ao Vivo
@@ -235,7 +235,7 @@ export default function Hero() {
 
             <a
               href="#cultos"
-              className="inline-flex items-center justify-center gap-1 font-semibold text-xs tracking-wider text-white hover:text-brand-accent uppercase active:scale-95 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-1 font-semibold text-[10px] sm:text-xs tracking-wider text-white hover:text-brand-accent uppercase active:scale-95 transition-all duration-300"
             >
               Nossos Cultos <span className="text-brand-accent ml-1 font-bold font-mono text-sm">&gt;</span>
             </a>

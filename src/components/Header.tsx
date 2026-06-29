@@ -31,13 +31,13 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-8",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-2 sm:px-4 md:px-8",
         isScrolled ? "top-2" : "top-0 md:top-2"
       )}
     >
       <div
         className={cn(
-          "mx-auto max-w-[1440px] rounded-2xl transition-all duration-500 backdrop-blur-lg py-3 px-6",
+          "mx-auto max-w-[1440px] rounded-2xl transition-all duration-500 backdrop-blur-lg py-2.5 px-3 sm:px-6",
           isScrolled
             ? "bg-background/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             : "bg-transparent"
@@ -45,8 +45,8 @@ export default function Header() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="#inicio" className="flex items-center gap-3 group">
-            <div className="relative w-[58px] h-[64px] transition-all duration-300 group-hover:scale-105">
+          <Link href="#inicio" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div className="relative w-[clamp(34px,10vw,46px)] xl:w-[58px] h-[clamp(38px,11vw,51px)] xl:h-[64px] transition-all duration-300 group-hover:scale-105 shrink-0">
               <Image
                 src="/ipr_itapema_logo_dark.png"
                 alt="IPR Itapema Logo"
@@ -56,23 +56,25 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex flex-col mt-1 text-sm md:text-md">
-              <span className="font-serif text-sm md:text-lg font-bold tracking-tight text-foreground leading-none">
+            <div className="flex flex-col mt-1">
+              <span className="font-serif text-[clamp(11px,3.2vw,14px)] xl:text-lg font-bold tracking-tight text-foreground leading-none block">
                 Igreja Presbiteriana
               </span>
-              <span><span className="tracking-widest text-brand-accent uppercase font-bold mt-0.5">
-                Renovada
-              </span> de Itapema</span>
+              <span className="text-[clamp(9.5px,2.8vw,11px)] xl:text-sm mt-0.5 whitespace-nowrap text-foreground/90 block">
+                <span className="tracking-widest text-brand-accent uppercase font-bold">
+                  Renovada
+                </span> de Itapema
+              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="p-2 text-sm text-foreground hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300"
+                className="p-1 xl:p-2 text-xs xl:text-sm text-foreground hover:text-brand-accent rounded-full hover:bg-white/5 transition-all duration-300 whitespace-nowrap"
               >
                 {link.name}
               </a>
@@ -80,12 +82,13 @@ export default function Header() {
           </nav>
 
           {/* CTA Button & Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Link
               href="/visitante"
-              className="hidden sm:inline-flex px-5 py-2 text-xs font-semibold tracking-wider text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover active:scale-95 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(226,194,157,0.2)]"
+              className="inline-flex px-2 py-1.5 sm:px-3 sm:py-1.5 xl:px-5 xl:py-2 text-[10px] xl:text-xs font-semibold tracking-wider text-brand-primary uppercase bg-brand-accent hover:bg-brand-accent-hover active:scale-95 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(226,194,157,0.2)] shrink-0"
             >
-              Sou Visitante
+              <span className="block xl:hidden">Visitante</span>
+              <span className="hidden xl:block">Sou Visitante</span>
             </Link>
 
             <button
