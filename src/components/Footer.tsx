@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-12 md:gap-x-6 md:gap-y-12 mb-16">
           
           {/* Logo & Info column */}
-          <div className="col-span-2 md:col-span-4 flex flex-row md:flex-col items-start gap-4 md:gap-4 w-full">
+          <div className="col-span-2 md:col-span-4 flex flex-row md:flex-col items-start gap-4 w-full">
             <Link href="#inicio" className="shrink-0 group">
               <div className="relative w-24 h-24 md:w-28 md:h-28 overflow-hidden">
                 <Image 
@@ -77,7 +77,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Navegação
             </h4>
-            <ul className="grid grid-cols-2 md:grid-cols-1 gap-3">
+            <ul className="grid grid-cols-2 md:grid-cols-1 gap-6 lg:gap-4">
               {menuLinks.map((link) => (
                 <li key={link.name}>
                   <a
@@ -96,7 +96,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Instituições
             </h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-6 lg:gap-4">
               {institutionLinks.map((inst) => (
                 <li key={inst.name}>
                   <a
@@ -117,7 +117,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
               Conecte-se
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-6 lg:gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
